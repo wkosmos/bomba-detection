@@ -12,3 +12,6 @@
 
 ## audio files in /data
 data/audio/
+
+# spotify creds 
+src/spotify_creds.py
