@@ -1,0 +1,27 @@
+#+TITLE: Tasks
+
+* Sunday
+EOD Goal:
+- 1000 data points (2000-3000 stretch)
+  + 2-beat spectrograms in two directories: marcha, and despelote
+  + roughly 260 2-beat chunks per song, so roughly 4 songs
+  + must be distinct but representative rhythm sections
+    + issac delgado
+    + charanga habanera (90s)
+    + alain perez
+    + manolito y su trabuco
+
+** Write functions:
+*** TODO load audio file
+*** TODO get beats from file
+*** TODO group into 2-beat chunks
+*** TODO make spectrogram
+*** TODO run make spectrogram on all files in a dir
+** TODO
+** TODO
+** TODO
+* Monday
+* Tuesday
+* Wednesday
+* Thursday
+* Friday
