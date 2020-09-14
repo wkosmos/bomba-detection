@@ -3,7 +3,10 @@ import librosa.display
 import pandas as pd
 import numpy as np
 import os
+import csv
 import matplotlib.pyplot as plt
+from pydub import AudioSegment
+
 
 
 # 90 bpm = 1.5 bps; 44100 samples per sec, so 66150 samples per beat.
@@ -28,44 +31,56 @@ def detect_beats(filepath, hop_length=44100, start_bpm=85, units='time'):
 
 
 def group_beats(beats, group_size=2):
-    """Delete every 2nd beat"""
+    """Delete every nth beat"""
     return beats.reshape(-1,2)[:1:].flatten()
 
 
-def save_spectrogram(y, sample_rate, ):
+def split_audio_into_bars(filepath, bar_indexes):
+    """Split a given wav file into segments based on given start locations."""
+    save_name = filepath[:-4]
+
+    audio_file = AudioSegment.from_wav(filepath)
+
+    chunk_list = []
+    # save from each index to the next as a separate file
+    for i in range(len(bar_indexes) - 1):
+        chunk = audio_file[bar_indexes[i]:bar_indexes[i+1]]
+        chunk_name = save_name + '_bar_' + str(i), format='wav'
+        chunk.export(chunk_name)
+        chunk_list.append(chunk_name)
+
+    chunk_name_file = open(save_name + 'chunk_list.csv', 'w')
+    
+
+    
+    
+
+
+
+def save_spectrogram(y, sample_rate, filepath):
     D = lb.stft(y)
     S_db = lb.amplitude_to_db(np.abs(D), ref=np.max())
 
     fig, ax = plt.subplots()
-    img = lb.display.specshow(S_db, ax=ax)
+    lb.display.specshow(S_db, ax=ax)
 
-    fig.save('/home/ww/Documents/projects/bomba-detection/data/' + )
+    fig.save(filepath)
     
 
+def process_all_wavs_in_dir(path):
+    for filename in os.listdir(path):
+        if filename.endswith('.wav'):
+            tempo, beats = detect_beats(path + filename)
+            bar_indexes = group_beats(beats)
+            split_audio_into_bars(path + filename, bar_indexes)
 
-def process_all_wavs_in_dir():
-    pass
+            chunk_list = 
+
 
 if __name__ == "__main__":
 
     path = '/home/ww/Documents/projects/bomba-detection/data/audio/'
-    # for filename in os.listdir(path):
-    #     if filename.endswith('.wav'):
-    #         tempo, beats = detect_beats(path + filename)
-    #         print('detected tempo for ' + filename + ': ' + str(tempo))
-    #         np.savetxt('test.csv', beats, delimiter=',', fmt='%f')
-    #     else:
-    #         continue
+    process_all_wavs_in_dir(path)
 
 
 
-    test_file = '/home/ww/Documents/projects/bomba-detection/data/audio/El Bla Bla Bla - Charanga habanera.wav'
-
-    y, sr = lb.load(test_file)
-
-    fig, ax = plt.subplots(nrows=2, ncols=1, sharex=True)
-    D = librosa.stft(y)  # STFT of y
-    S_db = librosa.amplitude_to_db(np.abs(D), ref=np.max)
-    plt.figure()
-    librosa.display.specshow(S_db)
-    plt.colorbar()
