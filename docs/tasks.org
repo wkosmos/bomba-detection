@@ -12,7 +12,6 @@ EOD Goal:
     + manolito y su trabuco
 
 ** Write functions:
-*** TODO load audio file
 *** TODO get beats from file
 *** TODO group into 2-beat chunks
 *** TODO make spectrogram
