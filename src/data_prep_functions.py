@@ -6,12 +6,13 @@ import os
 import csv
 import matplotlib.pyplot as plt
 from pydub import AudioSegment
+import shutil
 
 
 
 # 90 bpm = 1.5 bps; 44100 samples per sec, so 66150 samples per beat.
 # hop_length set to 44100 (exactly 2/3 of samples per beat) to avoid catcing half-beats
-def detect_beats(filepath, hop_length=44100, start_bpm=85, units='time'):
+def detect_beats(parent, filename, hop_length=44100, start_bpm=85, units='time'):
     """Load audio file from given path, detect tempo and beats.
     
     Args:
@@ -22,7 +23,7 @@ def detect_beats(filepath, hop_length=44100, start_bpm=85, units='time'):
     Returns:
     tempo (int, in bpm), beats (np.ndarray, in milliseconds)
     """
-    y, sr = lb.load(filepath)
+    y, sr = lb.load(parent + filename)
     tempo, beats = lb.beat.beat_track(y, sr, units='time', start_bpm=start_bpm)
 
     if not 115 > tempo > 80:
@@ -32,55 +33,84 @@ def detect_beats(filepath, hop_length=44100, start_bpm=85, units='time'):
 
 def group_beats(beats, group_size=2):
     """Delete every nth beat"""
-    return beats.reshape(-1,2)[:1:].flatten()
+    return np.delete(beats, slice(None, None, group_size))
 
 
-def split_audio_into_bars(filepath, bar_indexes):
+def split_audio_into_bars(parent, filename, bar_indexes):
     """Split a given wav file into segments based on given start locations."""
-    save_name = filepath[:-4]
+    save_name = parent +'chunks/' + filename[:-4]
 
-    audio_file = AudioSegment.from_wav(filepath)
+    audio_file = AudioSegment.from_wav(parent + filename)
+
+    # gears = np.loadtxt(open(parent + 'gears/' + filename[:-4] + '_gears.csv', 'rb'), delimiter=',')
 
     chunk_list = []
     # save from each index to the next as a separate file
     for i in range(len(bar_indexes) - 1):
         chunk = audio_file[bar_indexes[i]:bar_indexes[i+1]]
-        chunk_name = save_name + '_bar_' + str(i), format='wav'
-        chunk.export(chunk_name)
+        # if gears[i] == 0:
+        #     chunk_name =  save_name + '_bar_' + str(i) + '_0'
+        # else:
+        #     chunk_name =  save_name + '_bar_' + str(i) + '_1'
+        chunk_name =  save_name + '_bar_' + str(i) + '.wav'
+        chunk.export(chunk_name, format='wav')
         chunk_list.append(chunk_name)
 
-    chunk_name_file = open(save_name + 'chunk_list.csv', 'w')
-    
-
-    
-    
+    return chunk_list
 
 
+def move_chunks_to_dirs(parent):
+    """Move audio chunks to subdirectories based on final character being 1 or 0."""
+    files = os.listdir(path=parent)
 
-def save_spectrogram(y, sample_rate, filepath):
-    D = lb.stft(y)
-    S_db = lb.amplitude_to_db(np.abs(D), ref=np.max())
+    for filename in files:
+        class_num = filename.split('_')[0][-1]
+        if class_num == '0' or class_num == '1':
+            shutil.move(parent + filename, parent + '/' + class_num + '/' + filename)
+        else:
+            pass
+
+
+def save_spectrogram(filepath):
+    y, sr = lb.load(filepath)
+    D = lb.stft(y, hop_length=256, n_fft=4096)
+    S_db = lb.amplitude_to_db(np.abs(D), ref=np.max)
 
     fig, ax = plt.subplots()
-    lb.display.specshow(S_db, ax=ax)
+    lb.display.specshow(S_db, y_axis='log', ax=ax)
 
-    fig.save(filepath)
+    fig.savefig(filepath[:-4] + '.png')
+    plt.close(fig)
+    del fig
     
 
 def process_all_wavs_in_dir(path):
     for filename in os.listdir(path):
         if filename.endswith('.wav'):
-            tempo, beats = detect_beats(path + filename)
+            # get tempo and beat indexes from file
+            tempo, beats = detect_beats(path, filename)
+            # get every 2nd beat index
             bar_indexes = group_beats(beats)
-            split_audio_into_bars(path + filename, bar_indexes)
+            # split file by bar indexes and save csv list of those chunks
+            chunk_list = split_audio_into_bars(path, filename, bar_indexes)
+            print('chunk list: ', chunk_list)
 
-            chunk_list = 
+            # plot spectrogram of each chunk
+            # for chunk in chunk_list:
+            #     save_spectrogram(chunk)
+
+            
 
 
 if __name__ == "__main__":
 
-    path = '/home/ww/Documents/projects/bomba-detection/data/audio/'
-    process_all_wavs_in_dir(path)
+    path = '/home/ww/Documents/projects/bomba-detection/data/audio/chunks/0/'
+    # process_all_wavs_in_dir(path)
+
+    for filename in os.listdir(path):
+        if filename.endswith('.wav'):
+            save_spectrogram(path + filename)
+        
 
 
 
