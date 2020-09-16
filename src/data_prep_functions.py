@@ -77,7 +77,7 @@ def save_spectrogram(filepath):
     S_db = lb.amplitude_to_db(np.abs(D), ref=np.max)
 
     fig, ax = plt.subplots()
-    lb.display.specshow(S_db, y_axis='log', ax=ax)
+    lb.display.specshow(S_db, y_axis='log', ax=ax, cmap='viridis')
 
     fig.savefig(filepath[:-4] + '.png')
     plt.close(fig)
