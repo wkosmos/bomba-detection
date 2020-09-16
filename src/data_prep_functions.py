@@ -104,7 +104,7 @@ def process_all_wavs_in_dir(path):
 
 if __name__ == "__main__":
 
-    path = '/home/ww/Documents/projects/bomba-detection/data/audio/chunks/0/'
+    path = '/home/ww/Documents/projects/timba-gear-detection/data/audio/chunks/0/'
     # process_all_wavs_in_dir(path)
 
     for filename in os.listdir(path):
