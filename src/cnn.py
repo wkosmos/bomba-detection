@@ -28,7 +28,7 @@ data_dir = 'data/audio/split_chunks/train'
 validation_data_dir = 'data/audio/split_chunks/val'
 nb_train_samples = 495
 nb_validation_samples = 61
-epochs = 50
+epochs = 3
 batch_size = 16
 
 if K.image_data_format() == 'channels_first':
