@@ -86,13 +86,13 @@ validation_generator = test_datagen.flow_from_directory(
     class_mode='binary')
 
 checkpoint_filepath = '/data/checkpoint'
-    model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
-        filepath=checkpoint_filepath,
-        save_weights_only=True,
-        monitor='val_acc',
-        mode='max',
-        save_best_only=True, 
-        patience=20)
+model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
+filepath=checkpoint_filepath,
+save_weights_only=True,
+monitor='val_acc',
+mode='max',
+save_best_only=True, 
+patience=20)
 
 model.fit(
     train_generator,
