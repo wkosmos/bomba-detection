@@ -1,3 +1,4 @@
+import tensorflow
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten
@@ -5,8 +6,6 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras import backend as K
-from imblearn.over_sampling import SMOTE
-
 
 # from skimage import io, color, filters
 # from skimage.transform import resize, rotate
@@ -86,7 +85,7 @@ validation_generator = test_datagen.flow_from_directory(
     class_mode='binary')
 
 checkpoint_filepath = '/data/checkpoint'
-model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
+model_checkpoint_callback = tensorflow.keras.callbacks.ModelCheckpoint(
 filepath=checkpoint_filepath,
 save_weights_only=True,
 monitor='val_acc',
