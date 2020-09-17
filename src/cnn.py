@@ -28,7 +28,7 @@ data_dir = 'data/audio/split_chunks/train'
 validation_data_dir = 'data/audio/split_chunks/val'
 nb_train_samples = 495
 nb_validation_samples = 61
-epochs = 3
+epochs = 50
 batch_size = 16
 
 if K.image_data_format() == 'channels_first':
@@ -84,6 +84,15 @@ validation_generator = test_datagen.flow_from_directory(
     target_size=(img_width, img_height),
     batch_size=batch_size,
     class_mode='binary')
+
+checkpoint_filepath = '/data/checkpoint'
+    model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
+        filepath=checkpoint_filepath,
+        save_weights_only=True,
+        monitor='val_acc',
+        mode='max',
+        save_best_only=True, 
+        patience=20)
 
 model.fit(
     train_generator,
