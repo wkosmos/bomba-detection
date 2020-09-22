@@ -1,0 +1,15 @@
+#+TITLE: Presentation
+
+* Slide 1: Title
+Timba Gear Detection
+* Context
+- what is timba?
+- why is this project needed?
+* Method
+- system structure
+- description of steps
+* performance
+- how well does the model do?
+- compared to human experts?
+- what is needed for better performance?
+* next steps

@@ -71,20 +71,29 @@ def move_chunks_to_dirs(parent):
             pass
 
 
-def save_spectrogram(filepath):
+def save_spectrogram(filepath, cmap='plasma'):
+    """Create spectrogram from audio file at specified path, using specified colormap.
+    
+    Args:
+    filepath (str): location of audio file
+    cmap (str): matplotlib cmap name (default 'plasma')
+    
+    Returns:
+    nothing
+    """
     y, sr = lb.load(filepath)
     D = lb.stft(y, hop_length=256, n_fft=4096)
     S_db = lb.amplitude_to_db(np.abs(D), ref=np.max)
 
     fig, ax = plt.subplots()
-    lb.display.specshow(S_db, y_axis='log', ax=ax, cmap='viridis')
+    lb.display.specshow(S_db, y_axis='log', ax=ax, cmap=cmap)
 
     fig.savefig(filepath[:-4] + '.png')
     plt.close(fig)
     del fig
     
 
-def process_all_wavs_in_dir(path):
+def all_wavs_in_dir_to_2_beat_chunks(path):
     for filename in os.listdir(path):
         if filename.endswith('.wav'):
             # get tempo and beat indexes from file
@@ -104,8 +113,10 @@ def process_all_wavs_in_dir(path):
 
 if __name__ == "__main__":
 
-    path = '/home/ww/Documents/projects/timba-gear-detection/data/audio/chunks/0/'
-    # process_all_wavs_in_dir(path)
+    path = '/home/ww/Documents/projects/timba-gear-detection/data/audio/400_chunks/1/'
+
+    # all_wavs_in_dir_to_2_beat_chunks(path)
+    
 
     for filename in os.listdir(path):
         if filename.endswith('.wav'):

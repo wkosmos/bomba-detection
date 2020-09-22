@@ -12,15 +12,17 @@ EOD Goal:
     + manolito y su trabuco
 
 ** Write functions:
-*** TODO get beats from file
-*** TODO group into 2-beat chunks
-*** TODO make spectrogram
-*** TODO run make spectrogram on all files in a dir
-** TODO
-** TODO
-** TODO
+*** DONE get beats from file
+*** DONE group into 2-beat chunks
+*** DONE make spectrogram
+*** DONE run make spectrogram on all files in a dir
 * Monday
 * Tuesday
 * Wednesday
 * Thursday
 * Friday
+* Saturday
+** TODO try breaking into 16ths
+** TODO load weights
+* Sunday
+* Monday

@@ -13,5 +13,10 @@
 ## audio files in /data
 data/audio/
 
+# big
+
 # spotify creds 
 src/spotify_creds.py
+
+# aws key file
+src/cap3_key_pair.pem
