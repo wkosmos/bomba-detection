@@ -1,7 +1,14 @@
 # Timba Gear Detection
 
 ### TL;DR:
-Timba is an intensely complex and energetic genre of Cuban music originating in the 90s It's under very active academic study, but has almost no hard data available for research. This project attempts to recognize specific categories of rhythm section patterns by employing CNN image classification on spectrograms rendered from small audio chunks. The accuracy of the most recent test on unseen data was 81%. This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.
+- Timba is an intensely complex and energetic genre of Cuban music originating in the 90s It's under very active academic study, but has almost no hard data available for research. 
+<br>
+- This project attempts to recognize specific categories of rhythm section patterns by employing CNN image classification on spectrograms rendered from small audio chunks. 
+<br>
+- The accuracy of the most recent test on unseen data was 81%. 
+<br>
+- This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.
+<br>
 
 # Contents
 - [Context](#context)
@@ -18,6 +25,7 @@ Timba is an intensely complex and energetic genre of Cuban music originating in 
 
 **What is Timba?**
 The [Special Period](https://en.wikipedia.org/wiki/Special_Period) in Cuba in the 90s brought about a kind of musical renaissance, which had been slowly brewing for the previous couple of decades (driven primarily by [Los Van Van](https://www.youtube.com/watch?v=KKa3YZulvt0)). In this explosion of musical creativity Timba was born - a genre with an astonishing combination of complexity and raw energy - and has been under active study ever since. 
+<br>
 _Note: if you're wondering why you've never heard of timba - the average Cuban at the time would have had to save nearly a month's wages to buy a single CD, so what was recorded in the studio was 100% intended for non_cuban audiences, and the government at the time insisted on recording a very simplified, low-energy version of timba_
 
 **What are gears?**
@@ -38,9 +46,12 @@ Why would detecting gears be useful? For a few reasons:
 - automatically doing this labelling could remove a lot of the human work hours required to build larger datasets
   - opens the possibility of doing high-level research up to people with less musical training
   - creates the potential for more data-based research in the future
+  <br>
 This project and the datasets it will be able to create also fit into a larger project of mine, aimed at auto-transcription of of timba and other Cuban music.
 
 ## Data Preparation
+The data preparation process for this project is:
+
 
 ### Class Similarity
 
