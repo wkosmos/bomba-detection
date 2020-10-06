@@ -10,7 +10,7 @@
 - This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.
 <br>
 
-# Contents
+## Contents
 - [Context](#context)
   - What is timba?
   - What are gears?
@@ -28,15 +28,15 @@ The [Special Period](https://en.wikipedia.org/wiki/Special_Period) in Cuba in th
 <br>
 _Note: if you're wondering why you've never heard of timba - the average Cuban at the time would have had to save nearly a month's wages to buy a single CD, so what was recorded in the studio was 100% intended for non_cuban audiences, and the government at the time insisted on recording a very simplified, low-energy version of timba_
 
-**What are gears?**
+**What are gears?** <br>
 Gears - which are the main subject of this project - are collective patterns played by the entire rhythm section. To give an example using american pop music: the rhythm section -  bass, drums, guitar, and keyboard - might play one set of patterns during a song's verse, then collectively change to new patterns for the chorus. We might call these the 'verse' and 'chorus' gears. Timba has between 8 and 10 of these gears (depending on the band).
-
+<br>
 Here are a few examples of the categories of gears used in this project:
-
-**Marcha** (class 0) - 'normal' bread-and-butter category of gears, most verses, choruses, brass sections, etc.
+<br>
+**Marcha** (class 0) - 'normal' bread-and-butter category of gears, most verses, choruses, brass sections, etc.<br>
 [March Example 1](https://youtu.be/NOEjQKs6hpQ) [Marcha Example 2](https://youtu.be/u6Y2SSHUEYA)
 
-**Despelote** (class 1) - breakdown gears, super quiet, super loud, high-energy sections unique to timba
+**Despelote** (class 1) - breakdown gears, super quiet, super loud, high-energy sections unique to timba <br>
 [Despelote Example 1](https://youtu.be/aUV7MBnhl7w) [Despelote Example 2](https://youtu.be/yrfO9gy-Nxg)
 
 ## Goals/Uses
@@ -51,6 +51,7 @@ This project and the datasets it will be able to create also fit into a larger p
 
 ## Data Preparation
 The data preparation process for this project is:
+![data prep diagram: raw audio, detect beats, split into 2-beat chunks, organize chunks in directories based on labels, split directories into train, test, validate, prepared data](images/data-prep-diagram.png)
 
 
 ### Class Similarity
