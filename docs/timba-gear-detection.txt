@@ -1,0 +1,131 @@
+This project is on detecting rhythm section gears in timba music.
+
+NEXT
+
+To get started we need a little bit of context. Timba is an innovative 
+and highly complex genre of music which originated in Cuba 
+during the Special Period in the 1990s.
+
+Because timba uses a number of unique musical techniques that aren't 
+found in other genres, it has been under academic study for the past 
+20 years or so.
+
+Gears, which are the main subject of my project, are collective patterns 
+played by the entire rhythm section. To give an example using american 
+pop music: the rhythm section -  bass, drums, guitar, and keyboard - might play one set 
+of patterns during a song's verse, then collectively change to new patterns
+for the chorus. We might call these the 'verse' and 'chorus' gears. 
+Depending on who you ask, timba has between 8 and 10 of these gears.
+
+===========================================================================
+
+So why would detecting these be useful?
+It takes a lot of musical training and experience to identify these gears,
+and very little music has been labelled by gear in a way that's usable
+for data-based research. 
+
+Automatically doing this labelling opens the possibility to do high-level
+research up to more people who have less training, and also creates the
+potential for future more data-based research.
+
+Also, a dataset of music with gears identified would make a future project
+I've been planning for quite some time much easier to approach.
+
+========================================================================
+
+The preparation of this data set was quite a bit more of a task than I
+was expecting. 
+I wanted to choose songs from a diverse set of artists, so that the 
+resulting model would generalize well on future data, then I had to choose
+representative songs from those artists and get high quality versions.
+
+I split each song into 2-beat long chunks of audio, since gears always
+come in sections that are multiples of 2 beats long, and categorized 
+those chunks manually by listening through, then I validated my 
+classification of the chunks by submitting them to a couple of peers 
+in the field. 
+I chose to start easy by using 2 broad categories of gears 
+instead of the full 9 classes.
+One issue that came up here was that different artists used these 
+two categories of gears for very different proportions of their songs
+from each other, with ratios ranging from 10:1 to nearly 1:1, 
+so in order to have balanced classes I ended up having to leave around 
+40% of my labelled data unused.
+
+====================================================================
+
+Because each song is a different tempo and therefore each 2-beat chunk 
+is a different number of milliseconds long, I thought a good approach 
+would be to render a spectrogram of each chunk with the same dimensions
+and use a convolutional neural network to classify those images.
+
+=====================================================================
+
+Once I prepared all my data, it became very clear that this was not an 
+easy problem. I've included 5 randomly chosen examples from each class
+here, and you probably agree that, at least visually, it looks like 
+there's quite a bit more variance within the classes than there is 
+between them.
+
+=======================================================================
+
+My first CNN, which I ran with 400 data points, didn't perform that well,
+getting an accuracy score only barely better than random chance. 
+So I spent some hours listening through some more songs and 
+labelling more data, and retraining on 600 examples significantly 
+improved performance. 
+
+For some context. I asked 4 experts to do the same task - 2 expert 
+musicians, who I explained the two classes to verbally, and 2 subject-
+matter experts in timba - only 1 out of 4 managed a score above 50%.
+So on the one hand, the model does surprisingly well compared to human 
+experts, and on the other hand this points out a very relevant point
+about how humans would do this task - which I'll talk about in a moment
+
+========================================================================
+
+So how can the model do better?
+For one, more data is an obvious solution. Not only is 600 data points a 
+very small dataset to expect to train an accurate image classifier on,
+but the fact that the accuracy between 400 and 600 samples improved by 
+28% suggests that this may well be the most effective way forward.
+
+Also, lumping gears into these 2 broad categories is technically correct as far 
+as academic analysis is concerned,
+but as we saw earlier the variety within those 2 classes is huge, and this
+could be reduced very effectively by breaking the chunks into the more 
+specific 9 classes.
+
+Lastly, as I realized when the experts I asked did worse than random 
+chance, humans use much more than 2 beats worth of context to do
+the same task, so I'd like to try retraining the network on 8 or 12
+beat chunks, still labelled by the middle 2 beats.
+
+==========================================================================
+
+I want to thank everyone for your attention following me down what I realize
+is a pretty obscure rabbit hole, and if you have any questions,
+comments, ideas, or want to hear about my future project plans in the field
+ I'd love to hear from you!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
