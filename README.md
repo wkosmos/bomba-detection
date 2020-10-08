@@ -9,7 +9,7 @@
 <br>
 - This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.
 <br>
-![image of alain perez from live concert](images/alain_vivo.jpg)
+![image of alain perez from live concert](images/alain_vivo.png)
 
 ## Contents
 - [Context](#context)
