@@ -9,7 +9,7 @@
 <br>
 - This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.
 <br>
-![image of alain perez from live concert](images/alain_vivo.png)
+![image of alain perez from live concert](images/alain-vivo.png)
 
 ## Contents
 - [Context](#context)
@@ -83,7 +83,19 @@ would be to render each chunk of audio as a spectrogram, and use a convolutional
 Once I prepared all my data, it became very clear that this was not an 
 easy image classification problem. Here are 5 randomly chosen examples from each class - visually it's clear that there is at least as much variation **within** the classes as **between** them.
 ![image of 10 sprectrogram examples, 5 from class 0 and 5 from class 1. there is a lot of visual variation between all examples.](images/class-similarity.png)
+<br>
 
 ## Peformance
+My first CNN, which I trained with 400 data points, didn't perform that well, getting an accuracy score only barely better than random chance. 
+So I spent some hours listening through some more songs and 
+labeling some more data, and retraining the network on 600 examples significantly improved performance. 
+
+For some context, I asked 4 humans to attempt the same task - 2 of them were expert musicians, who I explained the two categories to verbally, and 2 of them were subject-matter experts in timba. Only 1 out of 4 managed a score above 50%.
+~[bar chart showing performance - 4 experts with 35, 45, 45, 55 % accuracy; 400-sample model with 53 % accuracy, 600-sample model with 81% accuracy](images/performance.png)
+<br>
+
+So on the one hand, the model does surprisingly well compared to human experts, and on the other hand these very low scores outline a very important difference between how an expert would approach this task and how the model is being forced to approach it.
+<br>
 
 ## Future Work
+
