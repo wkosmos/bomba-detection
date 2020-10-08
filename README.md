@@ -98,4 +98,17 @@ So on the one hand, the model does surprisingly well compared to human experts, 
 <br>
 
 ## Future Work
+**So how can the model perform better?**
+
+- More data
+This is possibly the most clearest solution. Not only is 600 data points a very small dataset to expect to train an accurate image classifier on, but the fact that the accuracy between 400 and 600 samples improved by 
+28% suggests that this may well be the most effective way forward.
+
+- More classes
+Lumping gears into these 2 broad categories is technically correct as far as academic analysis is concerned, but as we saw earlier the variation within those 2 classes is huge, and this could be reduced very effectively by breaking the chunks into the much more specific 9 classes.
+
+- More context
+Lastly, as I realized when the experts I asked got such low scores, humans use much more than 2 beats worth of context to approach the same classification task, so I'd like to try retraining the network on 8 to 16 beat chunks, which would still be labeled by the middle 2 beats.
+
+
 
