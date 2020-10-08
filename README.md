@@ -9,7 +9,7 @@
 <br>
 - This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.
 <br>
-![image of alain perez from live concert](images/alain_vivo.png)
+![image of alain perez from live concert](images/alain_vivo.jpg)
 
 ## Contents
 - [Context](#context)
@@ -80,8 +80,9 @@ would be to render each chunk of audio as a spectrogram, and use a convolutional
 <br>
 
 ### Class Similarity
-
-## Process
+Once I prepared all my data, it became very clear that this was not an 
+easy image classification problem. Here are 5 randomly chosen examples from each class - visually it's clear that there is at least as much variation **within** the classes as **between** them.
+![image of 10 sprectrogram examples, 5 from class 0 and 5 from class 1. there is a lot of visual variation between all examples.](images/class-similarity.png)
 
 ## Peformance
 
