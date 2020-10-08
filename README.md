@@ -51,8 +51,12 @@ Why would detecting gears be useful? For a few reasons:
 This project and the datasets it will be able to create also fit into a larger project of mine, aimed at auto-transcription of of timba and other Cuban music.
 
 ## Data Preparation
-The data preparation process for this project is:
 ![data prep diagram: raw audio, detect beats, split into 2-beat chunks, organize chunks in directories based on labels, split directories into train, test, validate, prepared data](images/data-prep-diagram.png)
+The data preparation process for this project was a fair bit more of a task than I had expected, but I eventually got it down to a relatively straightforward pipeline - though it does require a fair bit of human work (underlining the potential usefulness of an effective classification model).
+<br>
+After choosing songs to analyze, I got high quality audio versions, split each song into 2-beat long chunks, and categorized those chunk by listening through and manually. As a bit of a bias check, I validated my classification of the chunks by submitting them to a couple of academic peers in the field. 
+I chose to start by categorizing gears into 2 broad categories instead of the full 9 classes, to make sure I wasn't overreaching.
+
 
 
 ### Class Similarity
