@@ -13,8 +13,8 @@
 
 ## Contents
 - [Context](#context)
-  - What is timba?
-  - What are gears?
+  - [What is timba?](#What-is-Timba?)
+  - [What are gears?](#What-are-gears?)
 - [Goals/Uses](#Goals/uses)
 - [Data Preparation](#Data-Preparation)
   - [Class Imbalance](#Class-Imbalance)
@@ -25,8 +25,9 @@
 
 ## Context
 
-**What is Timba?**
+**What is Timba?** <br>
 The [Special Period](https://en.wikipedia.org/wiki/Special_Period) in Cuba in the 90s brought about a kind of musical renaissance, which had been slowly brewing for the previous couple of decades (driven primarily by [Los Van Van](https://www.youtube.com/watch?v=KKa3YZulvt0)). In this explosion of musical creativity Timba was born - a genre with an astonishing combination of complexity and raw energy - and has been under active study ever since. 
+<br>
 <br>
 
 _Note: if you're wondering why you've never heard of timba - the average Cuban at the time would have had to save nearly a month's wages to buy a single CD, so what was recorded in the studio was 100% intended for non_cuban audiences, and the government at the time insisted on recording a very simplified, low-energy version of timba_
