@@ -43,11 +43,11 @@ Here are a few examples of the categories of gears used in this project:
 
 **Marcha** (class 0) - 'normal' bread-and-butter category of gears, most verses, choruses, brass sections, etc.<br>
 
-[Marcha Example 1](https://youtu.be/NOEjQKs6hpQ) [Marcha Example 2](https://youtu.be/u6Y2SSHUEYA)
+[Marcha Example 1](https://youtu.be/NOEjQKs6hpQ) | [Marcha Example 2](https://youtu.be/u6Y2SSHUEYA)  
 **Despelote** (class 1) - breakdown gears, super quiet, super loud, high-energy sections unique to timba
 <br>
 
-[Despelote Example 1](https://youtu.be/aUV7MBnhl7w) [Despelote Example 2](https://youtu.be/yrfO9gy-Nxg)
+[Despelote Example 1](https://youtu.be/aUV7MBnhl7w) | [Despelote Example 2](https://youtu.be/yrfO9gy-Nxg)
 <br>
 
 ## Goals/Uses
@@ -92,7 +92,7 @@ So I spent some hours listening through some more songs and
 labeling some more data, and retraining the network on 600 examples significantly improved performance. 
 
 For some context, I asked 4 humans to attempt the same task - 2 of them were expert musicians, who I explained the two categories to verbally, and 2 of them were subject-matter experts in timba. Only 1 out of 4 managed a score above 50%.
-~[bar chart showing performance - 4 experts with 35, 45, 45, 55 % accuracy; 400-sample model with 53 % accuracy, 600-sample model with 81% accuracy](images/performance.png)
+![bar chart showing performance - 4 experts with 35, 45, 45, 55 % accuracy; 400-sample model with 53 % accuracy, 600-sample model with 81% accuracy](images/performance.png)
 <br>
 
 So on the one hand, the model does surprisingly well compared to human experts, and on the other hand these very low scores outline a very important difference between how an expert would approach this task and how the model is being forced to approach it.
@@ -101,14 +101,14 @@ So on the one hand, the model does surprisingly well compared to human experts, 
 ## Future Work
 **So how can the model perform better?**
 
-- More data
+- More data  
 This is possibly the most clearest solution. Not only is 600 data points a very small dataset to expect to train an accurate image classifier on, but the fact that the accuracy between 400 and 600 samples improved by 
 28% suggests that this may well be the most effective way forward.
 
-- More classes
+- More classes  
 Lumping gears into these 2 broad categories is technically correct as far as academic analysis is concerned, but as we saw earlier the variation within those 2 classes is huge, and this could be reduced very effectively by breaking the chunks into the much more specific 9 classes.
 
-- More context
+- More context  
 Lastly, as I realized when the experts I asked got such low scores, humans use much more than 2 beats worth of context to approach the same classification task, so I'd like to try retraining the network on 8 to 16 beat chunks, which would still be labeled by the middle 2 beats.
 
 
