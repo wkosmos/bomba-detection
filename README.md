@@ -9,7 +9,7 @@
 <br>
 - This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.
 <br>
-![image of alain perez from live concert](images/data-prep.png)
+![image of alain perez from live concert](images/data-prep-diagram.png)
 
 ## Contents
 - [Context](#context)
@@ -63,7 +63,7 @@ This project and the datasets it will be able to create also fit into a larger p
 <br>
 
 ## Data Preparation
-![data prep diagram: raw audio, detect beats, split into 2-beat chunks, organize chunks in directories based on labels, split directories into train, test, validate, prepared data](images/timba-gear-detection-data-prep-diagram.png)
+![data prep diagram: raw audio, detect beats, split into 2-beat chunks, organize chunks in directories based on labels, split directories into train, test, validate, prepared data](images/timba-gear-detection-data-prep.png)
 The data preparation process for this project was a fair bit more of a task than I had expected, but I eventually got it down to a relatively straightforward pipeline - though it does require a fair bit of human work (underlining the potential usefulness of an effective classification model).
 <br>
 After choosing songs to analyze, I got high quality audio versions, split each song into 2-beat long chunks, and categorized those chunk by listening through and manually. As a bit of a bias check, I validated my classification of the chunks by submitting them to some academic peers in the field. 
