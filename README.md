@@ -8,7 +8,7 @@
 - The accuracy of the most recent test on unseen data was 81%. 
 <br>
 - This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.  
-![image of musician alain perez from live concert](images/data-prep-diagram.png)
+![image of musician alain perez from live concert](https://github.com/wkosmos/timba-gear-detection/blob/master/images/data-prep-diagram.png)
 
 ## Contents
 - [Context](#context)
@@ -46,7 +46,6 @@ Here are a few examples of the categories of gears used in this project:
 <br>  
 **Despelote** (class 1) - breakdown gears, super quiet, super loud, high-energy sections unique to timba
 <br>
-
 [Despelote Example 1](https://youtu.be/aUV7MBnhl7w) | [Despelote Example 2](https://youtu.be/yrfO9gy-Nxg)
 <br>
 
