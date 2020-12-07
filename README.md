@@ -8,6 +8,7 @@
 - The accuracy of the most recent test on unseen data was 81%. 
 <br>
 - This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.  
+<br>  
 
 ![image of musician alain perez from live concert](https://github.com/wkosmos/timba-gear-detection/blob/master/images/data-prep-diagram.png)
 
