@@ -7,8 +7,7 @@
 <br>
 - The accuracy of the most recent test on unseen data was 81%. 
 <br>
-- This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.
-<br>
+- This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.  
 ![image of musician alain perez from live concert](images/data-prep-diagram.png)
 
 ## Contents
@@ -44,6 +43,7 @@ Here are a few examples of the categories of gears used in this project:
 **Marcha** (class 0) - 'normal' bread-and-butter category of gears, most verses, choruses, brass sections, etc.<br>
 
 [Marcha Example 1](https://youtu.be/NOEjQKs6hpQ) | [Marcha Example 2](https://youtu.be/u6Y2SSHUEYA)  
+<br>  
 **Despelote** (class 1) - breakdown gears, super quiet, super loud, high-energy sections unique to timba
 <br>
 
