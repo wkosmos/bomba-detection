@@ -4,11 +4,11 @@
 - Timba is an intensely complex and energetic genre of music which originated in Cuba in the 90s. It's under very active academic study, but has almost no hard data available for research.  
 
 
-- This project attempts to recognize specific categories of rhythm section patterns by employing CNN image classification on spectrograms rendered from small audio chunks.  
+- This project attempts to detect categories of rhythm section patterns by employing CNN image classification on spectrograms rendered from small audio chunks.  
 
 - The accuracy of the most recent test on unseen data was 81%.  
 
-- This is part of a larger ongoing project aimed at automatically transcribing the musical content in timba.  
+- This is part of a larger ongoing project aimed at automatic transcription of musical content in timba.  
 
 
 ![image of musician alain perez from live concert](https://github.com/wkosmos/timba-gear-detection/blob/master/images/data-prep-diagram.png)
